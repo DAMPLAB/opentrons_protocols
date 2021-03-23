@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "opentrons_protocols"
+version = "0.1.0"
+description = "DAMPLab Internal Opentrons Protocols"
+authors = ["Rita Chen, W.R. Jackson"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+opentrons = "^4.2.0"
+black = "^20.8b1"
+PyYAML = "^5.4.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

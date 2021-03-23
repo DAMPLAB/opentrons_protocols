@@ -1,0 +1,97 @@
+culture_block_0:
+- - name: 2-E0040m_CD-1
+    source: Agar_plate_test
+    x: 11.922279082563948
+    y: -9.35430426236991
+  - name: 5-E0030m_CD-1
+    source: Agar_plate_test
+    x: 20.67726540696941
+    y: -18.238595561153435
+  - name: 5-eBFP2_CD-4
+    source: Agar_plate_test
+    x: 109.8031176335886
+    y: -16.365986100700535
+- - name: 2-E1010m_CD-1
+    source: Agar_plate_test
+    x: 31.86863899681191
+    y: -6.577047345641228
+  - name: 5-E1010m_CD-1
+    source: Agar_plate_test
+    x: 29.705759190306193
+    y: -18.05632518245692
+  - name: 8-E0030m_CD-1
+    source: Agar_plate_test
+    x: 23.000027286640698
+    y: -26.18544227680468
+- - name: 2-eBFP2_CD-1
+    source: Agar_plate_test
+    x: 38.652097474725636
+    y: -6.485983051942361
+  - name: 5-eBFP2_CD-1
+    source: Agar_plate_test
+    x: 38.812298578313474
+    y: -15.700655466305342
+  - name: 8-E1010m_CD-1
+    source: Agar_plate_test
+    x: 31.20485034279107
+    y: -28.212514400080558
+- - name: 2-E0030m_CD-2
+    source: Agar_plate_test
+    x: 55.87366515443005
+    y: -7.109133758091522
+  - name: 5-E0030m_CD-2
+    source: Agar_plate_test
+    x: 57.07774896436387
+    y: -17.967113080817427
+  - name: 8-eBFP2_CD-1
+    source: Agar_plate_test
+    x: 38.731470232966366
+    y: -29.55136677485912
+- - name: 2-eBFP2_CD-2
+    source: Agar_plate_test
+    x: 79.04341321637784
+    y: -4.090488461593365
+  - name: 5-E1010m_CD-2
+    source: Agar_plate_test
+    x: 65.14720966138688
+    y: -18.68881005728397
+  - name: 8-E1010m_CD-2
+    source: Agar_plate_test
+    x: 68.85769532598854
+    y: -25.3215703202538
+- - name: 2-E0030m_CD-4
+    source: Agar_plate_test
+    x: 93.24939533041481
+    y: -9.370748119069134
+  - name: 5-E0040m_CD-4
+    source: Agar_plate_test
+    x: 83.68456122278833
+    y: -14.932254252042721
+  - name: 8-E0040m_CD-4
+    source: Agar_plate_test
+    x: 86.8079253365645
+    y: -23.816671844506466
+- - name: 2-E1010m_CD-4
+    source: Agar_plate_test
+    x: 104.30378477993115
+    y: -9.617418397594248
+  - name: 5-E0030m_CD-4
+    source: Agar_plate_test
+    x: 95.71875028295052
+    y: -17.09092004712128
+  - name: 8-E1010m_CD-4
+    source: Agar_plate_test
+    x: 101.64420337903454
+    y: -25.022767361710798
+- - name: 2-eBFP2_CD-4
+    source: Agar_plate_test
+    x: 114.95078440128883
+    y: -8.950104738434062
+  - name: 5-E1010m_CD-4
+    source: Agar_plate_test
+    x: 104.71585389382552
+    y: -15.541923221148675
+  - name: 8-eBFP2_CD-4
+    source: Agar_plate_test
+    x: 112.72217976767806
+    y: -24.876225234289652
