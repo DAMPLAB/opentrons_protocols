@@ -10,7 +10,7 @@ This document is intended to guide users through OT2 Colony Picking workflow on 
 - Performing dual-color colony detection for blue-white screening with open-source software, [OpenCFU](http://opencfu.sourceforge.net/).
 - Executing dual-color colony selection on a rectangular agar plate with circular colony growth regions of colony-forming units (CFUs).
 
-In addition, this workflow is a continuation of a previously established end-to-end [molecular cloning workflow](https://github.com/DAMPLAB/OT2-MoClo-Transformation-Ecoli) using the OT2 liquid handling robot by OpenTrons.
+In addition, this workflow is a continuation of a previously established end-to-end [modular cloning workflow](https://github.com/DAMPLAB/OT2-MoClo-Transformation-Ecoli) using the OT2 liquid handling robot by OpenTrons.
 
 ## Materials
 Below we list the materials previously used to implement OT2 Colony Picking workflow. We recommend starting with these consumables, however certain standard labwares may be altered. Labware needs to be defined carefully when working with OpenTrons OT-2 liquid handling robot and changes to labware requires the user to update the protocol scripts and the labwares used during the execution of OT2 Colony Picking runs. In addition, a custom labware, *point_for_colony_picking*, is created using Opentrons [Custom Labware Creator](https://labware.opentrons.com/create/) and applied in the implementation of the OT2 Colony Picking workflow. Here is a general [OpenTrons’ Guideline](https://support.opentrons.com/en/articles/3137426-what-labware-can-i-use-with-the-ot-2) for utilizing labware for users new to OT2 and additional details regarding labware can be found on [OpenTrons Labware Library](https://labware.opentrons.com/).
@@ -18,7 +18,7 @@ Below we list the materials previously used to implement OT2 Colony Picking work
 ### Software:
 - OpenTrons OT-2 App (Version 3.10.3 or later)
 - Python 3
-- [OT2 Colony Picking GitHub repository](https://github.com/DAMPLAB/OT2-Colony_Picking)
+- [OT2 Colony Picking GitHub repository](https://github.com/DAMPLAB/opentrons_protocols/tree/main/OT2-Colony-Picking)
 
 ### Hardware:
 - [OpenTrons OT-2](https://opentrons.com/ot-2)
@@ -41,12 +41,12 @@ Below we list the materials previously used to implement OT2 Colony Picking work
 Follow the Opentrons guidelines for setting up the OT-2 before executing any protocols.
 
 ### General Installation
-Using any web browser, navigate to the [GitHub directory](https://github.com/DAMPLAB/OT2-Colony-Picking) and follow the instructions provided in the **README.md** for the Software Requirements to install the necessary software setup.
+Using any web browser, navigate to the [GitHub directory](https://github.com/DAMPLAB/opentrons_protocols/tree/main/OT2-Colony-Picking) and follow the instructions provided in the **README.md** for the Software Requirements to install the necessary software setup.
 
-This workflow is a continuation of a previously established end-to-end [molecular cloning workflow](https://github.com/DAMPLAB/OT2-MoClo-Transformation-Ecoli) using the OT2 liquid handling robot by OpenTrons.
+This workflow is a continuation of a previously established end-to-end [modular cloning workflow](https://github.com/DAMPLAB/OT2-MoClo-Transformation-Ecoli) using the OT2 liquid handling robot by OpenTrons.
 
 ### Construct Supplemental CSV File
-Using any web browser, navigate to the following [GitHub directory](https://github.com/DAMPLAB/OT2-Colony-Picking), and follow the Step 1 of the Initial Setup for OT2 Colony Picking to generate necessary supplemental CSV file, LB agar plate map. Examples of LB agar plate map, *Agar_Plate.csv*, are provided in the examples folder of the GitHub directory.
+Using any web browser, navigate to the following [GitHub directory](https://github.com/DAMPLAB/opentrons_protocols/tree/main/OT2-Colony-Picking), and follow the Step 1 of the Initial Setup for OT2 Colony Picking to generate necessary supplemental CSV file, LB agar plate map. Examples of LB agar plate map, *Agar_Plate.csv*, are provided in the examples folder of the GitHub directory.
 
 ### Generate Opentrons Custom Labware
 Using any web browser, navigate to the Opentrons Help Center for [creating custom labware definitons](https://support.opentrons.com/en/articles/3136504-creating-custom-labware-definitions), and follow the instructions provided to create your own definition of a custom labware. The custom labware definition for *point_for_colony_picking* is provided in the examples folder of the GitHub directory.
@@ -68,7 +68,7 @@ Using any web browser, navigate to the Opentrons Help Center for [creating custo
     8. When image is generated, export the image for setting **Export for Publication** at *300dpi* as *.png format*
 
 ### Execute Colony Picking Protocols on OT-2
-1. Using any web browser, navigate to the [GitHub directory](https://github.com/DAMPLAB/OT2-Colony-Picking) and follow the instructions provided in the **README.md** for the Software Requirements to install the necessary software setup.
+1. Using any web browser, navigate to the [GitHub directory](https://github.com/DAMPLAB/opentrons_protocols/tree/main/OT2-Colony-Picking) and follow the instructions provided in the **README.md** for the Software Requirements to install the necessary software setup.
   **NOTE:** Save image(s) of your plate(s) to the *ot2_colony_picking/data/images* folder (the image saving location can be changed in *settings.yaml*). By default, when executing the protocol scripts, the most recently created images in this folder will be used first.
 2. Open up the command-line interface at *colony_picking* folder, and input *python3 colony_picking_generator.py* in your command-line interpreter.
 3. Select the *Agar_Plate.csv* file that is previously generated

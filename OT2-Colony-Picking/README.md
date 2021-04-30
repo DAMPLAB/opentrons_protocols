@@ -6,9 +6,9 @@ This workflow enables colony detection and selection of dual-color colony-formin
 - Performing dual-color colony detection for blue-white screening with open-source software, [OpenCFU](http://opencfu.sourceforge.net/).
 - Executing dual-color colony selection on a rectangular agar plate with circular colony growth regions of colony-forming units (CFUs).
 
-In addition, this workflow is a continuation of a previously established end-to-end [molecular cloning workflow](https://github.com/DAMPLAB/OT2-MoClo-Transformation-Ecoli) using the OT2 liquid handling robot by OpenTrons.
+In addition, this workflow is a continuation of a previously established end-to-end [modular cloning workflow](https://github.com/DAMPLAB/OT2-MoClo-Transformation-Ecoli) using the OT2 liquid handling robot by OpenTrons.
 
-Full setup instructions can be found [here](https://github.com/DAMPLAB/OT2-Colony-Picking/blob/master/instructions.md).
+Full setup instructions can be found [here](https://github.com/DAMPLAB/opentrons_protocols/blob/main/OT2-Colony-Picking/instructions.md).
 
 All code for this project is freely distributed for academic and commercial uses under the MIT license.
 
@@ -18,13 +18,13 @@ All code for this project is freely distributed for academic and commercial uses
 
 2. [OT2 APP](https://opentrons.com/ot-app)
 
-3. Clone this [repository](https://github.com/DAMPLAB/OT2-Colony-Picking) to a local computer.
+3. Clone this [repository](https://github.com/DAMPLAB/opentrons_protocols/tree/main/OT2-Colony-Picking) to a local computer.
 
 ## Colony Picking
 
 ### Getting Started
 
-Users looking to implement the OT2 Colony Picking in E. coli workflow are encouraged to consult the [instructions](https://github.com/DAMPLAB/OT2-Colony-Picking/blob/master/instructions.md). If you are looking to contribute to this project, please raise an issue or pull request. Otherwise, feel free to reach out to [rychen58](mailto:richen@bu.edu).
+Users looking to implement the OT2 Colony Picking in E. coli workflow are encouraged to consult the [instructions](https://github.com/DAMPLAB/opentrons_protocols/blob/main/OT2-Colony-Picking/instructions.md). If you are looking to contribute to this project, please raise an issue or pull request. Otherwise, feel free to reach out to [rychen58](mailto:richen@bu.edu).
 
 ### Initial setup
 
