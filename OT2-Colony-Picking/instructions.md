@@ -57,8 +57,8 @@ Using any web browser, navigate to the Opentrons Help Center for [creating custo
 2. Image and Export Conditions:    
     - Navigate to Application ***Image Lab 6.0***
     - Open ***New Protocol***
-    - For ***Acquisition Settings***     
-        1. Select checkbox for *1: Gel Imaging*
+    - For ***Acquisition Settings***:     
+        1. Select checkbox for ***1: Gel Imaging***
         2. For ***Application***, select *Colorimetric* from category *Blots (No Filter, White Epi Illumination)*
         3. For ***Imaging Area***, select option *Entire image area:*, and input *26.0 x 19.4 cm (WxL)* as setting
         4. For ***Image Exposure***, select option *Intense Bands* for *The software will automatically optimize the exposure time for…*
