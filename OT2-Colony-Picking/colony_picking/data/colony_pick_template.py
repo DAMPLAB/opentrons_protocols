@@ -68,6 +68,18 @@ def run(protocol: protocol_api.ProtocolContext):
     # Turn on robot rail lights
     protocol.set_rail_lights(True)
 
+    # Distribute Media + Antibiotic in Culture Block
+    # Increment num_cols by 1 to include the control column
+
+    protocol.comment('Begin distributing media and antibiotic!')
+    p300_m.pick_up_tip()
+    for i in range(0, (num_cols + 1)):
+        reagent = reagent_plate['A1'].bottom(3)
+        reactions = [well.bottom(5) for well in culture_block.columns()[i]]
+        p300_m.transfer(1500, reagent, reactions, new_tip='never')
+    p300_m.drop_tip()
+    protocol.pause()
+
     # Identifies and appends the plasmid names to the list and output Cultural Block Map
     source_plate_names = []
     for block_name, block_map in culture_blocks_dict.items():
