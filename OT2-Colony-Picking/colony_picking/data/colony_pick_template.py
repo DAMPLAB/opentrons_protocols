@@ -3,6 +3,7 @@
 # Written by Rita Chen 2020-03-18
 # Modify by Rita Chen 2020-03-22
 # Modify by Rita Chen 2020-03-26
+# Modify by Rita Chen 2020-05-18
 
 import math
 from opentrons import protocol_api
@@ -59,7 +60,9 @@ def run(protocol: protocol_api.ProtocolContext):
     for row in agar_plate_contents:
         for colony in row:
             num_rxns += 1
-    num_cols = math.ceil(num_rxns/8.0)
+
+    # Increment num_cols by 1 to include the control column
+    num_cols = math.ceil(num_rxns/8.0) + 1
 
     #available_deck_slots = ['11', '10', '9', '8', '7', '5', '2']
 
@@ -69,11 +72,9 @@ def run(protocol: protocol_api.ProtocolContext):
     protocol.set_rail_lights(True)
 
     # Distribute Media + Antibiotic in Culture Block
-    # Increment num_cols by 1 to include the control column
-
     protocol.comment('Begin distributing media and antibiotic!')
     p300_m.pick_up_tip()
-    for i in range(0, (num_cols + 1)):
+    for i in range(0, (num_cols)):
         reagent = reagent_plate['A1'].bottom(3)
         reactions = [well.bottom(5) for well in culture_block.columns()[i]]
         p300_m.transfer(1500, reagent, reactions, new_tip='never')
@@ -100,18 +101,27 @@ def run(protocol: protocol_api.ProtocolContext):
             label="Agar Plate Calibrated for Colony Picking",
         )
 
-    # Picking colonies from agar plate & placing colonies in culture block
+    # Create a read list for colony picking dispense locations to output the correct culture_block map
+    read_list = []
+    for i in range(num_cols):
+        for j in range(8):
+            chr_idx = chr(j+65) # this outputs "A"
+            target_well = f'{chr_idx}{i+1}' # this outputs "A1"
+            read_list.append(target_well)
 
+    # Picking colonies from agar plate & placing colonies in culture block
     # Starting at count = 8 because the first column of culture block (wells 0-7) are controls -- Media + Antibiotics only
     protocol.comment('Begin picking colony!')
     count = 8
     for block_name, block_map in culture_blocks_dict.items():
         for column in block_map:
             for colony in column:
+                destination_wells = [well.bottom(5) for well in culture_block.wells(read_list[count])]
+
                 p10_s.pick_up_tip()
                 x_pos = round(colony["x"], 1)
                 y_pos = round(colony["y"], 1)
-                z_pos = 3 # z-coordinate for the depth of the labware when picking colonies
+                z_pos = 3.5 # z-coordinate for the depth of the labware when picking colonies
 
                 # offset the x/y coordinates for reference origin, upper left corner of labware
                 off_x = x_pos + 1.0
@@ -120,7 +130,7 @@ def run(protocol: protocol_api.ProtocolContext):
                 p10_s.move_to(protocol.deck.position_for('2').move(Point(off_x, off_y, z_pos)))
                 # This aspirate ensures that the OT2 app realizes we are actually using this plate (so that it will tell the user to calibrate for it).
                 p10_s.aspirate(10)
-                p10_s.dispense(10, culture_block.wells()[count].bottom(5))
+                p10_s.dispense(10, destination_wells)
                 p10_s.mix(2, 10)
                 p10_s.drop_tip()
                 count += 1

@@ -63,7 +63,9 @@ def run(protocol: protocol_api.ProtocolContext):
     for row in agar_plate_contents:
         for colony in row:
             num_rxns += 1
-    num_cols = math.ceil(num_rxns/8.0)
+
+    # Increment num_cols by 1 to include the control column
+    num_cols = math.ceil(num_rxns/8.0) + 1
 
     #available_deck_slots = ['11', '10', '9', '8', '7', '5', '2']
 
@@ -73,11 +75,9 @@ def run(protocol: protocol_api.ProtocolContext):
     protocol.set_rail_lights(True)
 
     # Distribute Media + Antibiotic in Culture Block
-    # Increment num_cols by 1 to include the control column
-
     protocol.comment('Begin distributing media and antibiotic!')
     p300_m.pick_up_tip()
-    for i in range(0, (num_cols + 1)):
+    for i in range(0, (num_cols)):
         reagent = reagent_plate['A1'].bottom(3)
         reactions = [well.bottom(5) for well in culture_block.columns()[i]]
         p300_m.transfer(1500, reagent, reactions, new_tip='never')
