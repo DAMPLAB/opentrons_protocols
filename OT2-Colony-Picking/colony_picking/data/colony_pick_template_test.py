@@ -192,7 +192,7 @@ def run(protocol: protocol_api.ProtocolContext):
     )
 
     culture_block = protocol.load_labware(
-        load_name="usascientific_96_wellplate_2.4ml_deep",
+        load_name="biorad_96_wellplate_200ul_pcr",
         location=1,
         label="Culture Block",
     )
@@ -242,16 +242,6 @@ def run(protocol: protocol_api.ProtocolContext):
     # Turn on robot rail lights
     protocol.set_rail_lights(True)
 
-    # Distribute Media + Antibiotic in Culture Block
-    protocol.comment("Begin distributing media and antibiotic!")
-    p300_m.pick_up_tip()
-    for i in range(0, (num_cols)):
-        reagent = reagent_plate["A1"].bottom(3)
-        reactions = [well.bottom(5) for well in culture_block.columns()[i]]
-        p300_m.transfer(1500, reagent, reactions, new_tip="never")
-    p300_m.drop_tip()
-    protocol.pause()
-
     # Identifies and appends the plasmid names to the list and output Cultural Block Map
     source_plate_names = []
     for block_name, block_map in culture_blocks_dict.items():
@@ -272,25 +262,19 @@ def run(protocol: protocol_api.ProtocolContext):
             label="Agar Plate Calibrated for Colony Picking",
         )
 
-    # Create a read list for colony picking dispense locations to output the correct culture_block map
-    read_list = []
-    for i in range(num_cols):
-        for j in range(8):
-            chr_idx = chr(j + 65)  # this outputs "A"
-            target_well = f"{chr_idx}{i+1}"  # this outputs "A1"
-            read_list.append(target_well)
+    # Create a well list for colony picking dispense locations to output the correct culture_block map
+    count = 8
+    well_list = []
+    for i in range(0,(num_cols-1)):
+        for j in range(count):
+            well_list.append(f"{chr(j + 65)}{i + 2}")
 
     # Picking colonies from agar plate & placing colonies in culture block
-    # Starting at count = 8 because the first column of culture block (wells 0-7) are controls -- Media + Antibiotics only
+    # Starting at the second column of culture block, the first column (wells 0-7) is a control column -- Media + Antibiotics only
     protocol.comment("Begin picking colony!")
-    count = 8
     for block_name, block_map in culture_blocks_dict.items():
         for column in block_map:
             for colony in column:
-                destination_wells = [
-                    well.bottom(5) for well in culture_block.wells(read_list[count])
-                ]
-
                 p10_s.pick_up_tip()
                 x_pos = round(colony["x"], 1)
                 y_pos = round(colony["y"], 1)
@@ -305,10 +289,10 @@ def run(protocol: protocol_api.ProtocolContext):
                 )
                 # This aspirate ensures that the OT2 app realizes we are actually using this plate (so that it will tell the user to calibrate for it).
                 p10_s.aspirate(10)
-                p10_s.dispense(10, destination_wells)
+                p10_s.dispense(10, culture_block[well_list.pop(0)].bottom(5))
                 p10_s.mix(2, 10)
+                p10_s.blow_out()
                 p10_s.drop_tip()
-                count += 1
 
     protocol.comment("Protocol completed!")
     # Turn off robot rail lights
