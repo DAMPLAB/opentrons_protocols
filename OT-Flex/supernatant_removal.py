@@ -117,7 +117,7 @@ def run(protocol: protocol_api.ProtocolContext) -> None:
             properties={"flex_8channel_1000": {"opentrons/opentrons_flex_96_tiprack_1000ul/1": {
                 "aspirate": {
                     "aspirate_position": {
-                        "offset": {"x": -1.6, "y": 0, "z": 7},
+                        "offset": {"x": 1.6, "y": 0, "z": 7},
                         "position_reference": "well-bottom",
                     },
                     "flow_rate_by_volume": [(0, 100)],  
