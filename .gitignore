@@ -133,3 +133,6 @@ dmypy.json
 
 # Pytest Output
 .pytest_cache
+
+# macOS
+.DS_Store

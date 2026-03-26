@@ -1,0 +1,34 @@
+# setting.yalm for ot2 colony picking dual-color detection
+background_folder_path: data/background_images
+block_columns: 12
+block_rows: 8
+blur_radius: 0
+brightness: 1
+calibration_point_location:
+  x: 0.5
+  y: 2
+colonies_to_pick: 1
+colony_regions:
+  columns: 12
+  rows: 8
+  type: rectangle
+  x_1: 9.04
+  x_2: 17.04
+  x_spacing: 9.1
+  y_1: 7.04
+  y_2: 15.04
+  y_spacing: 9
+contrast: 1
+draw_previews: true
+image_folder_path: images
+inverted: false
+keep_temp_files: true
+opencfu_arg_string:  -d bil -t 1 -r 3 -R 12 -c 210 -C 28
+opencfu_folder_path: C:\Program Files (x86)\OpenCFU
+output_folder_path: C:\Users\DAMP\Downloads\ot2_moclo_jove\ot2_moclo_jove\colony_picking
+pixels_per_mm: 12.075
+plate_locations:
+-  {x: 2021.0, y: 727.0}
+protocol_template_path: data/colony_pick_template.py
+rotate: -89.58
+temp_folder_path: data/temp_images
