@@ -55,7 +55,6 @@ def run(protocol: protocol_api.ProtocolContext) -> None:
 
     # Load Pipettes:
     pipette_left = protocol.load_instrument("flex_8channel_1000", "left")
-    pipette_right = protocol.load_instrument("flex_8channel_50", "right")
 
     # Speed Up Gantry:
     pipette_left.default_speed = 800
