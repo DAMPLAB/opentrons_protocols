@@ -17,11 +17,6 @@ Each protocol should be placed in its own folder under the appropriate robot dir
 - If a labware definition is only used by a single protocol, it may be stored inside that protocol's folder
 - Do not duplicate shared labware definitions unless absolutely necessary
  
-## Archiving Old Work
- 
-- **Do not delete** old protocols or labware
-- Move unused or deprecated items to the **`archive/`** folder instead
- 
 ## Naming Conventions
  
 - Use lowercase with underscores for folder and file names
