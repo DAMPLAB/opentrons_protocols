@@ -11,7 +11,6 @@ This repository contains Opentrons OT-2 and OT-Flex protocols, shared custom lab
 - **tools/** – Tools and utilities (e.g., colony picking generator)
 - **docs/** – Documentation and notes
 - **templates/** – Protocol templates
-- **archive/** – Old or unused files (do not delete old work, move it here)
  
 ## OT-2 vs OT-Flex
  
@@ -20,4 +19,4 @@ This repository contains Opentrons OT-2 and OT-Flex protocols, shared custom lab
  
 ## Contributing
  
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on adding protocols, managing labware, and archiving old work.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on adding protocols.
